@@ -1,0 +1,44 @@
+{
+  "products":
+  [
+    {
+      "code": "GR1",
+      "name": "Green Tea",
+      "price": 3.11,
+      "currency": "euro",
+      "discount": "free"
+    },
+    {
+      "code": "SR1",
+      "name": "Strawberries",
+      "price": 5.0,
+      "currency": "euro",
+      "discount": "absolute"
+    },
+    {
+      "code": "CF1",
+      "name": "Coffee",
+      "price": 11.23,
+      "currency": "euro",
+      "discount": "percent"
+    }
+  ],
+  "discounts":
+  [
+    {
+      "type": "free",
+      "count": 1,
+      "value": 1
+    },
+    {
+      "type": "absolute",
+      "count": 3,
+      "value": 0.5
+    },
+    {
+      "type": "percent",
+      "count": 3,
+      "value": 0.3333
+    }
+  ]
+}
