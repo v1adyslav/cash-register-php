@@ -11,3 +11,10 @@ function show_product_details($product) {
 
     echo "Price: $product->price$currency \n\n";
 }
+
+function get_currency_sign($currency) {
+    return match ($currency) {
+        'euro' => '€',
+        default => '$',
+    };
+}

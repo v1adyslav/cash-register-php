@@ -2,7 +2,11 @@
 
 class Product
 {
-    public $code, $name, $price, $currency, $discount_type;
+    public string $code;
+    public string $name;
+    public float $price;
+    public string $currency;
+    public string $discount_type;
 
     function __construct($code, $name, $price, $currency, $discount) {
         $this->code = $code;

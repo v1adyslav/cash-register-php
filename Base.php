@@ -3,13 +3,14 @@
 require 'Models/Product.php';
 require 'Models/Discount.php';
 require 'helpers.php';
+require 'Services/CalculateBasketPrice.php';
 
 class Base {
-    const INPUT_FILE = 'input.json';
+    const string INPUT_FILE = 'input.json';
 
-    public $products_list = [];
-    public $discounts_list = [];
-    public $basket = [];
+    public array $products_list = [];
+    public array $discounts_list = [];
+    public array $basket = [];
 
     public function cli() {
         # read from input file
@@ -37,9 +38,18 @@ class Base {
         } while ($buf != 'end');
 
         echo "Basket is ".join(',', $this->basket)."\n";
+
+        $service = new CalculateBasketPrice($this->basket, $this->products_list, $this->discounts_list);
+        $result = $service->call();
+
+        if ($result['success']) {
+            echo "Total price: ".$result['price'].get_currency_sign('euro')."\n";
+        } else {
+            echo "Error message: ".$result['message']."\n";
+        }
     }
 
-    private function add_product_to_basket($code) {
+    private function add_product_to_basket($code): void {
         if ( array_key_exists( $code, $this->products_list) )
             $this->basket[] = $code;
         else
