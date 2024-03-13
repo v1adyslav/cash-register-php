@@ -1,9 +1,7 @@
 <?php
 
-require 'Models/Product.php';
-require 'Models/Discount.php';
-require 'helpers.php';
-require 'Services/CalculateBasketPrice.php';
+require_once 'src/bootstrap.php';
+require 'src/helpers.php';
 
 class Base {
     const string INPUT_FILE = 'input.json';

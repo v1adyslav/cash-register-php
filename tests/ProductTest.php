@@ -2,10 +2,6 @@
 
 use PHPUnit\Framework\TestCase;
 
-require_once __DIR__.'/../Models/Product.php';
-require_once __DIR__.'/../Models/Discount.php';
-#require_once 'src/bootstrap.php';
-
 class ProductTest extends TestCase
 {
     private $product;
